@@ -34,7 +34,7 @@ gulp.task('default', function () {
 
 ### vulcanize(options)
 
-These [options](https://github.com/Polymer/grunt-vulcanize/tree/v1.0.0#using-vulcanize-programmatically).
+These [options](https://github.com/Polymer/vulcanize/tree/v1.0.0#using-vulcanize-programmatically).
 
 
 ## License
