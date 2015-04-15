@@ -22,8 +22,14 @@ module.exports = function (opts) {
 
 		vulcanize.process(file.path, function(err, inlinedHtml) {
 			if (err) {
-				this.emit('error', new gutil.PluginError('gulp-vulcanize', err, {fileName: file.path}));
+				cb(new gutil.PluginError('gulp-vulcanize', err, {fileName: file.path}));
 			} else {
+				this.push(new gutil.File({
+					cwd: file.cwd,
+					base: path.dirname(file.path),
+					path: file.path,
+					contents: new Buffer(inlinedHtml)
+				}));
 				cb();
 			}
 		}.bind(this));
