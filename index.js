@@ -1,4 +1,5 @@
 'use strict';
+
 var path = require('path');
 var gutil = require('gulp-util');
 var through = require('through2');
@@ -18,9 +19,11 @@ module.exports = function (opts) {
 			return;
 		}
 
+		var target = path.relative(opts.abspath, file.path);
+
 		vulcanize.setOptions(opts);
 
-		vulcanize.process(file.path, function (err, inlinedHtml) {
+		vulcanize.process(target, function (err, inlinedHtml) {
 			if (err) {
 				cb(new gutil.PluginError('gulp-vulcanize', err, {fileName: file.path}));
 				return;
