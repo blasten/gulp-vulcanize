@@ -19,7 +19,7 @@ module.exports = function (opts) {
 			return;
 		}
 
-		var target = path.relative(opts.abspath, file.path);
+		var target = (opts.abspath) ? path.relative(opts.abspath, file.path) : file.path;
 
 		vulcanize.setOptions(opts);
 
